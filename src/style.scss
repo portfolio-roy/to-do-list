@@ -1,0 +1,74 @@
+$primary: #2c2c2c;
+$secondary: gray;
+
+.secondary{
+    color: $secondary;
+}
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#to-do-container{
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 1px 2px 5px 4px lightgrey;
+}
+
+.to-do-card{
+    padding: 10px;
+    box-shadow: 1px 1px 2px lightgrey;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;   
+    color: $primary;
+}
+
+.to-do-placeholder{
+    color: $primary;
+    font-style: italic;
+}
+.to-do-submit{
+    color: $secondary;
+}
+#to-do-input{
+    flex-grow: 1;
+    border: none;
+    &:focus{
+        border: none;
+        outline: none;
+    }
+}
+#list-to-do{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rotate{
+    transform: rotate(90deg);
+}
+
+#clear-all{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: rgb(211 211 211 / 18%);
+    color: $primary;
+}
+
+.d-none{
+    display: none !important;
+}
+.delete-ico{
+    margin-right: 8px;
+}

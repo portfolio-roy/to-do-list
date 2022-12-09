@@ -1,5 +1,6 @@
 $primary: #2c2c2c;
 $secondary: gray;
+$alert: red;
 
 .secondary {
   color: $secondary;
@@ -15,7 +16,7 @@ $secondary: gray;
 }
 
 #to-do-container {
-  width: 375px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -31,11 +32,34 @@ $secondary: gray;
   align-items: center;
   justify-content: space-between;
   color: $primary;
+
+  .edit-input {
+    display: none;
+  }
+
+  &.edit-mode {
+    .edit-input[type="text"] {
+      display: block;
+    }
+
+    .item-text {
+      display: none;
+    }
+  }
 }
 
 .to-do-placeholder {
   color: $primary;
   font-style: italic;
+}
+
+.error {
+  color: $alert;
+  border: 1px solid $alert !important;
+
+  &::placeholder {
+    color: $alert !important;
+  }
 }
 
 .to-do-submit {
@@ -58,6 +82,10 @@ $secondary: gray;
   margin: 0;
 }
 
+.to-do-checkbox:checked + .item-text {
+  text-decoration: line-through;
+}
+
 .rotate {
   transform: rotate(90deg);
 }
@@ -75,6 +103,17 @@ $secondary: gray;
   display: none !important;
 }
 
-.delete-ico {
+.v-hidden {
+  visibility: hidden;
+}
+
+.delete-ico,
+.edit-ico {
   margin-right: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  #to-do-container {
+    width: 425px;
+  }
 }

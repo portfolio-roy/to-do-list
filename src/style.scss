@@ -33,19 +33,11 @@ $alert: red;
   justify-content: space-between;
   color: $primary;
 
-  .edit-input {
-    display: none;
-  }
+  
+}
 
-  &.edit-mode {
-    .edit-input[type="text"] {
-      display: block;
-    }
-
-    .item-text {
-      display: none;
-    }
-  }
+.to-do-item{
+    gap: 8px;
 }
 
 .to-do-placeholder {
@@ -66,7 +58,7 @@ $alert: red;
   color: $secondary;
 }
 
-#to-do-input {
+#to-do-input{
   flex-grow: 1;
   border: none;
 
@@ -75,13 +67,28 @@ $alert: red;
     outline: none;
   }
 }
-
+.item-text {
+    flex-grow: 1;
+    border: none;
+    &:focus{
+        border: $secondary;
+        outline: $secondary;
+    }
+}
 #list-to-do {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
+.item-left, .item-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.item-left{
+    flex-grow: 1;
+}
 .to-do-checkbox:checked + .item-text {
   text-decoration: line-through;
 }

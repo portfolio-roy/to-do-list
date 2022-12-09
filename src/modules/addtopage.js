@@ -1,16 +1,49 @@
 import updateDom from './updatedom.js';
 import toDos from './data.js';
+import { editItem, saveItem } from './edititem.js';
 
 const addItemToPage = (toDo) => {
   const listToDo = document.getElementById('list-to-do');
   const toDoItem = document.createElement('li');
   toDoItem.setAttribute('id', toDo.index);
   toDoItem.classList.add('to-do-item', 'to-do-card');
-  toDoItem.innerHTML = `<span class="item-left"><input type="checkbox" class="to-do-checkbox" id="to-do-item-${toDo.index}" name="to-do-item-${toDo.index}" value="${toDo.description}">
-  <label for="to-do-item-${toDo.index}" class="item-text">${toDo.description}</label><input type="text" class="edit-input"></span>`;
+  toDoItem.innerHTML = `<span class="item-left"><input type="checkbox" class="to-do-checkbox" id="to-do-checkbox-${toDo.index}" name="to-do-item-${toDo.index}" value="${toDo.description}">
+  <input id="to-do-item-${toDo.index}" class="item-text" value="${toDo.description}" readonly></span>`;
   const itemRight = document.createElement('span');
   itemRight.classList.add('item-right');
   toDoItem.appendChild(itemRight);
+  const editIco = document.createElement('i');
+  editIco.classList.add(
+    'fa-regular',
+    'fa-pen-to-square',
+    'secondary',
+    'edit-ico',
+    'v-hidden',
+  );
+  editIco.setAttribute('id', `edit-${toDo.index}`);
+
+  const saveIco = document.createElement('i');
+  saveIco.classList.add(
+    'fa-regular',
+    'fa-floppy-disk',
+    'secondary',
+    'edit-ico',
+    'd-none',
+  );
+  saveIco.setAttribute('id', `save-${toDo.index}`);
+  editIco.addEventListener('click', () => {
+    editItem(toDo.index);
+    saveIco.classList.remove('d-none');
+    editIco.classList.add('d-none');
+  });
+  itemRight.appendChild(editIco);
+  saveIco.addEventListener('click', () => {
+    saveItem(toDo.index);
+    saveIco.classList.add('d-none');
+    editIco.classList.remove('d-none');
+    updateDom();
+  });
+  itemRight.appendChild(saveIco);
   const deleteIco = document.createElement('i');
   deleteIco.classList.add(
     'fa-solid',
@@ -29,9 +62,11 @@ const addItemToPage = (toDo) => {
   itemRight.appendChild(optionIco);
   toDoItem.addEventListener('mouseover', () => {
     deleteIco.classList.remove('v-hidden');
+    editIco.classList.remove('v-hidden');
   });
   toDoItem.addEventListener('mouseout', () => {
     deleteIco.classList.add('v-hidden');
+    editIco.classList.add('v-hidden');
   });
 
   listToDo.appendChild(toDoItem);

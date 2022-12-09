@@ -27,7 +27,7 @@ const addItemToPage = (toDo) => {
     'fa-regular',
     'fa-floppy-disk',
     'secondary',
-    'edit-ico',
+    'save-ico',
     'd-none',
   );
   saveIco.setAttribute('id', `save-${toDo.index}`);

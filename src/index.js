@@ -5,7 +5,10 @@ import './style.scss';
 import buildPage from './modules/buildpage.js';
 
 import addSingle from './modules/addsingle.js';
+import updateDom from './modules/updatedom.js';
 
+const refreshBtn = document.getElementById('refresh-btn');
+refreshBtn.addEventListener('click', () => updateDom());
 const addBtn = document.getElementById('add-btn');
 const toDoInput = document.getElementById('to-do-input');
 addBtn.addEventListener('click', () => {

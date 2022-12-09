@@ -119,8 +119,15 @@ $alert: red;
 }
 
 .delete-ico,
-.edit-ico {
+.edit-ico,
+.save-ico {
   margin-right: 8px;
+  cursor: pointer;
+}
+
+#add-btn,
+#refresh-btn {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

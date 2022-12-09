@@ -1,5 +1,6 @@
 $primary: #2c2c2c;
 $secondary: gray;
+$alert: red;
 
 .secondary {
   color: $secondary;
@@ -15,7 +16,7 @@ $secondary: gray;
 }
 
 #to-do-container {
-  width: 375px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -33,9 +34,22 @@ $secondary: gray;
   color: $primary;
 }
 
+.to-do-item {
+  gap: 8px;
+}
+
 .to-do-placeholder {
   color: $primary;
   font-style: italic;
+}
+
+.error {
+  color: $alert;
+  border: 1px solid $alert !important;
+
+  &::placeholder {
+    color: $alert !important;
+  }
 }
 
 .to-do-submit {
@@ -52,10 +66,35 @@ $secondary: gray;
   }
 }
 
+.item-text {
+  flex-grow: 1;
+  border: none;
+
+  &:focus {
+    border: $secondary;
+    outline: $secondary;
+  }
+}
+
 #list-to-do {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.item-left,
+.item-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-left {
+  flex-grow: 1;
+}
+
+.to-do-checkbox:checked + .item-text {
+  text-decoration: line-through;
 }
 
 .rotate {
@@ -75,6 +114,24 @@ $secondary: gray;
   display: none !important;
 }
 
-.delete-ico {
+.v-hidden {
+  visibility: hidden;
+}
+
+.delete-ico,
+.edit-ico,
+.save-ico {
   margin-right: 8px;
+  cursor: pointer;
+}
+
+#add-btn,
+#refresh-btn {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  #to-do-container {
+    width: 425px;
+  }
 }

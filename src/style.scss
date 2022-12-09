@@ -32,12 +32,10 @@ $alert: red;
   align-items: center;
   justify-content: space-between;
   color: $primary;
-
-  
 }
 
-.to-do-item{
-    gap: 8px;
+.to-do-item {
+  gap: 8px;
 }
 
 .to-do-placeholder {
@@ -58,7 +56,7 @@ $alert: red;
   color: $secondary;
 }
 
-#to-do-input{
+#to-do-input {
   flex-grow: 1;
   border: none;
 
@@ -67,28 +65,34 @@ $alert: red;
     outline: none;
   }
 }
+
 .item-text {
-    flex-grow: 1;
-    border: none;
-    &:focus{
-        border: $secondary;
-        outline: $secondary;
-    }
+  flex-grow: 1;
+  border: none;
+
+  &:focus {
+    border: $secondary;
+    outline: $secondary;
+  }
 }
+
 #list-to-do {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.item-left, .item-right{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.item-left,
+.item-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.item-left{
-    flex-grow: 1;
+
+.item-left {
+  flex-grow: 1;
 }
+
 .to-do-checkbox:checked + .item-text {
   text-decoration: line-through;
 }

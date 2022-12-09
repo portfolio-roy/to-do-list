@@ -6,6 +6,7 @@ import buildPage from './modules/buildpage.js';
 
 import addSingle from './modules/addsingle.js';
 import updateDom from './modules/updatedom.js';
+import toDos from './modules/data.js';
 
 const refreshBtn = document.getElementById('refresh-btn');
 refreshBtn.addEventListener('click', () => updateDom());
@@ -20,6 +21,10 @@ toDoInput.addEventListener('keypress', (event) => {
   }
 });
 
+const clearBtn = document.getElementById('clear-all');
+clearBtn.addEventListener('click', () => {
+  toDos.clearAll();
+});
 window.onload = () => {
   buildPage();
 };

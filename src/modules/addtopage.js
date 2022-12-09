@@ -70,6 +70,14 @@ const addItemToPage = (toDo) => {
   });
 
   listToDo.appendChild(toDoItem);
+  const toDoCheckBox = toDoItem.childNodes[0].childNodes[0];
+  toDoCheckBox.addEventListener('change', () => {
+    if (toDoCheckBox.checked) {
+      toDos.completedTask(toDo.index);
+    } else {
+      toDos.undoComplete(toDo.index);
+    }
+  });
 };
 
 export default addItemToPage;

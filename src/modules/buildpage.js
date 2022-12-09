@@ -1,5 +1,6 @@
 import toDos from './data.js';
 import addItemToPage from './addtopage.js';
+import isCompolete from './completed.js';
 
 const buildPage = () => {
   toDos.list = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
@@ -8,6 +9,7 @@ const buildPage = () => {
     return;
   }
   toDos.list.forEach((toDo) => addItemToPage(toDo));
+  isCompolete();
 };
 
 export default buildPage;

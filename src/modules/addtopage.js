@@ -33,7 +33,7 @@ const addItemToPage = (toDo) => {
     'd-none',
   );
   saveIco.setAttribute('id', `save-${toDo.index}`);
-  const itemText = toDoItem.childNodes[0].childNodes[2];
+
   editIco.addEventListener('click', () => {
     editItem(toDo.index);
     saveIco.classList.remove('d-none');
@@ -47,14 +47,6 @@ const addItemToPage = (toDo) => {
     updateDom();
   });
   itemRight.appendChild(saveIco);
-  itemText.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-      saveIco.click();
-    }
-  });
-  itemText.addEventListener('dblclick', () => {
-    editIco.click();
-  });
 
   const deleteIco = document.createElement('i');
   deleteIco.classList.add(
@@ -88,6 +80,22 @@ const addItemToPage = (toDo) => {
       toDos.completedTask(toDo.index);
     } else {
       toDos.undoComplete(toDo.index);
+    }
+  });
+  const itemText = toDoItem.childNodes[0].childNodes[2];
+  itemText.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      saveIco.click();
+    }
+  });
+  itemText.addEventListener('dblclick', () => {
+    editIco.click();
+  });
+  itemText.addEventListener('click', () => {
+    if (toDoCheckBox.checked) {
+      toDoCheckBox.checked = false;
+    } else {
+      toDoCheckBox.checked = true;
     }
   });
 };

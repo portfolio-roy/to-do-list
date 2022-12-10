@@ -16,7 +16,7 @@ $alert: red;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 8px;
 }
 
@@ -26,6 +26,10 @@ $alert: red;
   flex-direction: column;
   align-items: stretch;
   box-shadow: 1px 2px 5px 4px lightgrey;
+}
+
+.to-do-name {
+  background-color: rgb(128 128 128 / 24.1%);
 }
 
 .to-do-card {
@@ -147,5 +151,22 @@ $alert: red;
 
   .main {
     justify-content: center;
+  }
+}
+
+footer {
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  small {
+    font-size: x-small;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary;
   }
 }

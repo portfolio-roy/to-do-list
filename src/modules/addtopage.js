@@ -12,6 +12,8 @@ const addItemToPage = (toDo) => {
   const itemRight = document.createElement('span');
   itemRight.classList.add('item-right');
   toDoItem.appendChild(itemRight);
+
+  // Edit button
   const editIco = document.createElement('i');
   editIco.classList.add(
     'fa-regular',
@@ -21,7 +23,7 @@ const addItemToPage = (toDo) => {
     'v-hidden',
   );
   editIco.setAttribute('id', `edit-${toDo.index}`);
-
+  //  Save button
   const saveIco = document.createElement('i');
   saveIco.classList.add(
     'fa-regular',
@@ -31,6 +33,7 @@ const addItemToPage = (toDo) => {
     'd-none',
   );
   saveIco.setAttribute('id', `save-${toDo.index}`);
+  const itemText = toDoItem.childNodes[0].childNodes[2];
   editIco.addEventListener('click', () => {
     editItem(toDo.index);
     saveIco.classList.remove('d-none');
@@ -44,6 +47,15 @@ const addItemToPage = (toDo) => {
     updateDom();
   });
   itemRight.appendChild(saveIco);
+  itemText.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      saveIco.click();
+    }
+  });
+  itemText.addEventListener('dblclick', () => {
+    editIco.click();
+  });
+
   const deleteIco = document.createElement('i');
   deleteIco.classList.add(
     'fa-solid',

@@ -5,9 +5,11 @@ $alert: red;
 .secondary {
   color: $secondary;
 }
+
 * {
   box-sizing: border-box;
 }
+
 .main {
   width: 100%;
   display: flex;
@@ -15,7 +17,7 @@ $alert: red;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  padding: 24px;
+  padding: 8px;
 }
 
 #to-do-container {
@@ -92,6 +94,10 @@ $alert: red;
   align-items: center;
 }
 
+.item-right {
+  gap: 8px;
+}
+
 .item-left {
   flex-grow: 1;
 }
@@ -138,6 +144,7 @@ $alert: red;
   #to-do-container {
     width: 425px;
   }
+
   .main {
     justify-content: center;
   }

@@ -29,7 +29,7 @@ $alert: red;
 }
 
 .to-do-name {
-  background-color: rgb(128 128 128 / 24.1%);
+  background-color: rgba($color: $secondary, $alpha: 0.24)
 }
 
 .to-do-card {

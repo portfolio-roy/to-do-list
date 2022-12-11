@@ -74,15 +74,10 @@ const addItemToPage = (toDo) => {
   });
 
   listToDo.appendChild(toDoItem);
+
   const toDoCheckBox = toDoItem.childNodes[0].childNodes[0];
-  toDoCheckBox.addEventListener('change', () => {
-    if (toDoCheckBox.checked) {
-      toDos.completedTask(toDo.index);
-    } else {
-      toDos.undoComplete(toDo.index);
-    }
-  });
   const itemText = toDoItem.childNodes[0].childNodes[2];
+  itemText.style.cursor = 'pointer';
   itemText.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
       saveIco.click();
@@ -94,8 +89,17 @@ const addItemToPage = (toDo) => {
   itemText.addEventListener('click', () => {
     if (toDoCheckBox.checked) {
       toDoCheckBox.checked = false;
+      toDos.undoComplete(toDo.index);
     } else {
       toDoCheckBox.checked = true;
+      toDos.completedTask(toDo.index);
+    }
+  });
+  toDoCheckBox.addEventListener('change', () => {
+    if (toDoCheckBox.checked) {
+      toDos.completedTask(toDo.index);
+    } else {
+      toDos.undoComplete(toDo.index);
     }
   });
 };

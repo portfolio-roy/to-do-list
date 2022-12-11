@@ -1,7 +1,7 @@
+import { localData, listItems, checkBox } from './globals.js';
+
 const updateDom = () => {
-  const listItems = document.querySelectorAll('.to-do-item');
-  const checkBox = document.querySelectorAll('.to-do-checkbox');
-  const data = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
+  const data = localData;
 
   for (let i = 0; i < listItems.length; i += 1) {
     listItems[i].setAttribute('id', data[i].index);

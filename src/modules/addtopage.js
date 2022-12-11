@@ -1,9 +1,9 @@
 import updateDom from './updatedom.js';
 import toDos from './data.js';
 import { editItem, saveItem } from './edititem.js';
+import { listToDo } from './globals.js';
 
 const addItemToPage = (toDo) => {
-  const listToDo = document.getElementById('list-to-do');
   const toDoItem = document.createElement('li');
   toDoItem.setAttribute('id', toDo.index);
   toDoItem.classList.add('to-do-item', 'to-do-card');

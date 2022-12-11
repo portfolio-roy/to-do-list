@@ -1,5 +1,7 @@
+import { localData } from './globals.js';
+
 const setIndex = () => {
-  const toDoList = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
+  const toDoList = localData;
   let index;
   if (toDoList === null) {
     index = 1;

@@ -29,7 +29,8 @@ $alert: red;
 }
 
 .to-do-name {
-  background-color: rgba($color: $secondary, $alpha: 24%);
+  background-color: #424242;
+  color: white !important;
 }
 
 .to-do-card {
@@ -45,6 +46,14 @@ $alert: red;
 
 .to-do-item {
   gap: 8px;
+
+  &:nth-child(odd) {
+    background-color: #e3f2fd;
+  }
+
+  &:nth-child(even) {
+    background-color: #f1f8e9;
+  }
 }
 
 .to-do-placeholder {
@@ -78,6 +87,7 @@ $alert: red;
 .item-text {
   flex-grow: 1;
   border: none;
+  background-color: transparent;
 
   &:focus {
     border: $secondary;
@@ -119,7 +129,7 @@ $alert: red;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: rgb(6 121 227 / 74.3%);
+  background: #006978;
   color: white;
   cursor: pointer;
 }

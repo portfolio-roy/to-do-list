@@ -1,0 +1,182 @@
+$primary: #2c2c2c;
+$secondary: gray;
+$alert: red;
+
+.secondary {
+  color: $secondary;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 90vh;
+  padding: 8px;
+}
+
+#to-do-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 1px 2px 5px 4px lightgrey;
+}
+
+.to-do-name {
+  background-color: #424242;
+  color: white !important;
+}
+
+.to-do-card {
+  padding: 10px;
+  box-shadow: 1px 1px 2px lightgrey;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: $primary;
+}
+
+.to-do-item {
+  gap: 8px;
+
+  &:nth-child(odd) {
+    background-color: #e3f2fd;
+  }
+
+  &:nth-child(even) {
+    background-color: #f1f8e9;
+  }
+}
+
+.to-do-placeholder {
+  color: $primary;
+  font-style: italic;
+}
+
+.error {
+  color: $alert;
+  border: 1px solid $alert !important;
+
+  &::placeholder {
+    color: $alert !important;
+  }
+}
+
+.to-do-submit {
+  color: $secondary;
+}
+
+#to-do-input {
+  flex-grow: 1;
+  border: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.item-text {
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+
+  &:focus {
+    border: $secondary;
+    outline: $secondary;
+  }
+}
+
+#list-to-do {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-left,
+.item-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-right {
+  gap: 8px;
+}
+
+.item-left {
+  flex-grow: 1;
+}
+
+.to-do-checkbox:checked + .item-text {
+  text-decoration: line-through;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+#clear-all {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #006978;
+  color: white;
+  cursor: pointer;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.v-hidden {
+  visibility: hidden;
+}
+
+.delete-ico,
+.edit-ico,
+.save-ico {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+#add-btn,
+#refresh-btn {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  #to-do-container {
+    width: 425px;
+  }
+
+  .main {
+    justify-content: center;
+  }
+}
+
+footer {
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  small {
+    font-size: x-small;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary;
+  }
+}

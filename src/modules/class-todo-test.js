@@ -5,7 +5,7 @@ export default class ToDoTest {
 
   addTask = (singleTask) => {
     this.list.push(singleTask);
-    localStorage.setItem("To-Dos-test", JSON.stringify(this.list));
+    localStorage.setItem('To-Dos-test', JSON.stringify(this.list));
   };
 
   deleteTask = (index) => {
@@ -13,6 +13,6 @@ export default class ToDoTest {
     this.list.forEach((taskObj) => {
       taskObj.index = this.list.indexOf(taskObj) + 1;
     });
-    localStorage.setItem("To-Dos-test", JSON.stringify(this.list));
+    localStorage.setItem('To-Dos-test', JSON.stringify(this.list));
   };
 }

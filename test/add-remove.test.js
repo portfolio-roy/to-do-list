@@ -22,4 +22,9 @@ describe("We are", () => {
     const localData = JSON.parse(localStorage.getItem("To-Dos-test"))[0];
     expect(localData).toEqual(mockOutput[0]);
   });
+  test("testing delete items from the to-do list", () => {
+    toDosTest.deleteTask(1);
+    const localData = JSON.parse(localStorage.getItem("To-Dos-test"));
+    expect(localData).toEqual([]);
+  });
 });

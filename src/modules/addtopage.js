@@ -57,6 +57,8 @@ const addItemToPage = (toDo) => {
     'v-hidden',
   );
   deleteIco.addEventListener('click', () => {
+    const task = document.getElementById(toDo.index);
+    task.remove();
     toDos.deleteTask(toDo.index);
     updateDom();
   });
@@ -87,12 +89,14 @@ const addItemToPage = (toDo) => {
     editIco.click();
   });
   itemText.addEventListener('click', () => {
-    if (toDoCheckBox.checked) {
-      toDoCheckBox.checked = false;
-      toDos.undoComplete(toDo.index);
-    } else {
-      toDoCheckBox.checked = true;
-      toDos.completedTask(toDo.index);
+    if (itemText.hasAttribute('readonly')) {
+      if (toDoCheckBox.checked) {
+        toDoCheckBox.checked = false;
+        toDos.undoComplete(toDo.index);
+      } else {
+        toDoCheckBox.checked = true;
+        toDos.completedTask(toDo.index);
+      }
     }
   });
   toDoCheckBox.addEventListener('change', () => {

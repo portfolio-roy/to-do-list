@@ -8,10 +8,9 @@ import addSingle from './modules/addsingle.js';
 import updateDom from './modules/updatedom.js';
 import toDos from './modules/data.js';
 import { refreshBtn, addBtn, toDoInput } from './modules/globals.js';
-// const refreshBtn = document.getElementById('refresh-btn');
+
 refreshBtn.addEventListener('click', () => updateDom());
-// const addBtn = document.getElementById('add-btn');
-// const toDoInput = document.getElementById('to-do-input');
+
 addBtn.addEventListener('click', () => {
   addSingle();
 });
@@ -24,6 +23,7 @@ toDoInput.addEventListener('keypress', (event) => {
 const clearBtn = document.getElementById('clear-all');
 clearBtn.addEventListener('click', () => {
   toDos.clearAll();
+  updateDom();
 });
 window.onload = () => {
   buildPage();

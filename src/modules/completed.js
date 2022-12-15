@@ -1,13 +1,15 @@
+import { localData } from './globals.js';
+
 const isCompolete = () => {
-  const data = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
+  const data = localData;
   const checkBox = document.querySelectorAll('.to-do-checkbox');
-  for (let i = 0; i < checkBox.length; i += 1) {
+  checkBox.forEach((checkbox, i) => {
     if (data[i].completed === true) {
-      checkBox[i].checked = true;
+      checkbox.checked = true;
     } else {
-      checkBox[i].checked = false;
+      checkbox.checked = false;
     }
-  }
+  });
 };
 
 export default isCompolete;

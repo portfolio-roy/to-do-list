@@ -22,6 +22,12 @@ toDoInput.addEventListener('keypress', (event) => {
 
 const clearBtn = document.getElementById('clear-all');
 clearBtn.addEventListener('click', () => {
+  const listItems = document.querySelectorAll('.to-do-item');
+  listItems.forEach((item) => {
+    if (item.childNodes[0].childNodes[0].checked) {
+      item.remove();
+    }
+  });
   toDos.clearAll();
   updateDom();
 });

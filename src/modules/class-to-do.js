@@ -18,6 +18,12 @@ export default class ToDo {
     localStorage.setItem('To-Dos', JSON.stringify(this.list));
   };
 
+  editTask = (edited, index) => {
+    const localData = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
+    localData[index - 1].description = edited;
+    localStorage.setItem('To-Dos', JSON.stringify(localData));
+  };
+
   completedTask = (index) => {
     this.list = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
 
@@ -35,12 +41,6 @@ export default class ToDo {
   };
 
   clearAll = () => {
-    const listItems = document.querySelectorAll('.to-do-item');
-    for (let i = 0; i < listItems.length; i += 1) {
-      if (listItems[i].childNodes[0].childNodes[0].checked) {
-        listItems[i].remove();
-      }
-    }
     const data = JSON.parse(localStorage.getItem('To-Dos' || '[]'));
     const newData = data.filter((taskObj) => taskObj.completed === false);
     newData.forEach((taskObj) => {
